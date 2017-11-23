@@ -102,7 +102,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p1.png">
-<meta property="og:updated_time" content="2017-11-23T01:04:18.859Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/20130108112638885.png">
+<meta property="og:updated_time" content="2017-11-23T01:21:04.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java方法调用">
 <meta name="twitter:description" content="主要特性 函数与方法的区别 Java调用方法的过程  函数与方法的区别 函数与方法在不同的场景下，叫法不同。函数一般出现在面向过程，比如C语言，通过函数名就可以调用这个函数。而方法一般出现在面向对象，与对象相关联，通过对象调用里面的方法。  Java调用方法的过程 当Java启动一个线程的时候，就会创建一个栈。每当线程执行一个方法的时候，就会压入一个栈帧。只有处于栈顶的栈帧才是最有效的，称为当前栈">
@@ -207,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -217,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -227,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -301,7 +302,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T19:47:09+08:00">
                 2017-11-22
@@ -373,6 +374,8 @@
 <p>2.当主线程执行swap方法时，创建swap帧，并压入栈，<code>注意：同时把main帧的a=1,b=2的数值也拷贝一份，在swap帧也创建了变量a和b，因此，修改swap帧的变量，也不会影响main帧的变量。经过一系列操作，swap帧里的变量a=2，b=1，t=1。这是传值，适用于Java的基础数据类型，如int,float,double等等</code></p>
 <p><img src="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p2.png" alt=""></p>
 <p>3.当执行完swap方法时，swap帧就会出栈，swap帧里的变量a,b,t也会随着出栈而被回收。<br><img src="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p1.png" alt=""></p>
+<h3 id="习题二"><a href="#习题二" class="headerlink" title="习题二"></a>习题二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">int</span> t = fact(n);</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fact</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> n * fact(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法调用过程-1"><a href="#方法调用过程-1" class="headerlink" title="方法调用过程"></a>方法调用过程</h4><p><img src="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/20130108112638885.png" alt=""></p>
 
       
     </div>
@@ -459,10 +462,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -487,7 +490,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -571,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要特性"><span class="nav-number">1.</span> <span class="nav-text">主要特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数与方法的区别"><span class="nav-number"></span> <span class="nav-text">函数与方法的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java调用方法的过程"><span class="nav-number"></span> <span class="nav-text">Java调用方法的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Code"><span class="nav-number">1.</span> <span class="nav-text">Java Code : </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ByteCode"><span class="nav-number">2.</span> <span class="nav-text">ByteCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#习题一"><span class="nav-number">3.</span> <span class="nav-text">习题一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法调用过程"><span class="nav-number">3.1.</span> <span class="nav-text">方法调用过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要特性"><span class="nav-number">1.</span> <span class="nav-text">主要特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数与方法的区别"><span class="nav-number"></span> <span class="nav-text">函数与方法的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java调用方法的过程"><span class="nav-number"></span> <span class="nav-text">Java调用方法的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Code"><span class="nav-number">1.</span> <span class="nav-text">Java Code : </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ByteCode"><span class="nav-number">2.</span> <span class="nav-text">ByteCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#习题一"><span class="nav-number">3.</span> <span class="nav-text">习题一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法调用过程"><span class="nav-number">3.1.</span> <span class="nav-text">方法调用过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#习题二"><span class="nav-number">4.</span> <span class="nav-text">习题二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法调用过程-1"><span class="nav-number">4.1.</span> <span class="nav-text">方法调用过程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -603,7 +606,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -267,6 +267,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/RecursiveDescent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/23/RecursiveDescent/" itemprop="url">RecursiveDescent</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T17:47:09+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>递归算法</li>
+<li>BNF范式<ul>
+<li>定义</li>
+<li>终结符和非终结符</li>
+<li>语法</li>
+</ul>
+</li>
+<li>递归下降求值法</li>
+</ul>
+<h1 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h1><ol>
+<li>子问题与原始问题为同样的事情，且更为简单<br></li>
+<li>不能无限的调用本身，须有个出口。</li>
+</ol>
+<h1 id="BNF范式"><a href="#BNF范式" class="headerlink" title="BNF范式"></a>BNF范式</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>BNF范式也叫巴科斯范式，它奠定了现代计算机的基础。它以递归方式描述语言中的各种成分，凡遵守其规则的程序就可保证语法上的正确性。BNF由于其简洁、明了、科学而广泛接受，成为描述各种程序设计语言的常用工具。</p>
+</blockquote>
+<h2 id="终结符和非终结符"><a href="#终结符和非终结符" class="headerlink" title="终结符和非终结符"></a>终结符和非终结符</h2><blockquote>
+<p>终结符：不能单独出现在推导式左边的符号，即不能再进行推导，是不可再拆分的最小元素。</p>
+<p>非终结符：可理解为一个可拆分的元素</p>
+</blockquote>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p>&lt;符号&gt; ::= &lt;使用符号的表达式1&gt;|&lt;使用符号的表达式2&gt; <br><br>这里的&lt;符号&gt;是非终结符，即可以继续拆分，用&lt;&gt;括起来的是非终结符。::=和:=是同一个意思，都表示为定义。| 表示或，即可用表达式1或表达式2</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><blockquote>
+<p>&lt;句子&gt; ::= &lt;主语&gt; &lt;谓语&gt; &lt;宾语&gt; <br><br>&lt;谓语&gt; ::= &lt;动词&gt; | &lt;动词短语&gt; <br><br>&lt;主语&gt; ::= 你 | 我 | 他 <br><br>&lt;句子&gt;&lt;谓语&gt;&lt;主语&gt;&lt;宾语&gt;等等带&lt;&gt;的，都是非终结符，可以继续拆分，而你我他则是最小元素，不可拆分。</p>
+</blockquote>
+<h1 id="递归下降"><a href="#递归下降" class="headerlink" title="递归下降"></a>递归下降</h1><blockquote>
+<p>传统上，编写语法分析器有两种方法，一种是自顶向下，一种是自底自上。自顶向下是从起始非终结符开始，不断地对非终结符进行分解，直到匹配输入的终结符；自顶向下方法就是我们所说的递归下降。</p>
+</blockquote>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><blockquote>
+<p>使用BNF语法分析简单的四则运算表达式<br><br>如：1 + 3 * (4 + 2)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;expr&gt; ::= &lt;expr&gt; + &lt;term&gt;</span><br><span class="line">         | &lt;expr&gt; - &lt;term&gt;</span><br><span class="line">         | &lt;term&gt;</span><br><span class="line"> </span><br><span class="line">&lt;term&gt; ::= &lt;term&gt; * &lt;factor&gt;</span><br><span class="line">         | &lt;term&gt; / &lt;factor&gt;</span><br><span class="line">         | &lt;factor&gt;</span><br><span class="line"> </span><br><span class="line">&lt;factor&gt; ::= ( &lt;expr&gt; )</span><br><span class="line">           | Num</span><br></pre></td></tr></table></figure></p>
+<p>有了BNF方法后，采用递归向下的方法来实现编译器是很直观的。</p>
+<h4 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a>Java Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyParser</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">expr</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> t = term(s);</span><br><span class="line">        <span class="keyword">while</span> (s[pos] == <span class="string">'+'</span> || s[pos] == <span class="string">'-'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[pos] == <span class="string">'+'</span>)&#123;</span><br><span class="line">                pos++;</span><br><span class="line">                t = t + term(s);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s[pos] == <span class="string">'-'</span>)&#123;</span><br><span class="line">                pos++;</span><br><span class="line">                t = t - term(s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">term</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> t = factor(s);</span><br><span class="line">        <span class="keyword">while</span> (s[pos] == <span class="string">'*'</span> || s[pos] == <span class="string">'/'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[pos] == <span class="string">'*'</span>)&#123;</span><br><span class="line">                pos++;</span><br><span class="line">                t = t * factor(s);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s[pos] == <span class="string">'/'</span>)&#123;</span><br><span class="line">                pos++;</span><br><span class="line">                t = t / factor(s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">factor</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s[pos] == <span class="string">'('</span>)&#123;</span><br><span class="line">            pos++;</span><br><span class="line">            <span class="keyword">double</span> t = expr(s);</span><br><span class="line">            <span class="keyword">if</span> (s[pos] == <span class="string">')'</span>)&#123;</span><br><span class="line">                pos++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(<span class="string">'0'</span> &lt;= s[pos] &amp;&amp; s[pos] &lt;= <span class="string">'9'</span>)&#123;</span><br><span class="line">                t = t * <span class="number">10</span> + s[pos] - <span class="string">'0'</span>;<span class="comment">//t * 10 处理两位数以上;char[pos] - '0' =&gt;'8'-&gt;int 8</span></span><br><span class="line">                pos++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (<span class="keyword">double</span>)t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String expression = <span class="string">"-2-142#"</span>;</span><br><span class="line">        <span class="keyword">double</span> result = expr(expression.toCharArray());</span><br><span class="line">        System.out.println(<span class="string">"result : "</span>+result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/JavaHeap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -296,7 +449,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T10:11:06+08:00">
                 2017-11-23
@@ -432,7 +585,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T19:47:09+08:00">
                 2017-11-22
@@ -580,7 +733,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T08:45:43+08:00">
                 2017-11-21
@@ -967,7 +1120,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T14:54:43+08:00">
                 2017-11-09
@@ -1103,8 +1256,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1204,7 +1357,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

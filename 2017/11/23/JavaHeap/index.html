@@ -92,21 +92,21 @@
 
 
 
-<meta name="description" content="主要特性 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的">
+<meta name="description" content="目录 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的时候">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java--堆">
 <meta property="og:url" content="http://yoursite.com/2017/11/23/JavaHeap/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="主要特性 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的">
+<meta property="og:description" content="目录 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的时候">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p6.png">
 <meta property="og:image" content="https://github.com/zhengdunhao/UploadFiles/blob/master/p7.png?raw=true">
-<meta property="og:updated_time" content="2017-11-23T08:26:29.084Z">
+<meta property="og:updated_time" content="2017-11-23T12:10:43.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java--堆">
-<meta name="twitter:description" content="主要特性 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的">
+<meta name="twitter:description" content="目录 堆的介绍 堆的工作过程  堆的介绍 Java把内存划分为两种，一种是栈内存，另外一种是堆内存。 在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配的，而一般new出来的对象或者定义的数组，则分配到堆内存。 栈内存和堆内存区别之一是，栈内存能够在方法执行完后，自动出栈，自动销毁方法里的变量。而堆内存的对象需要交给Java的垃圾回收器处理,即垃圾回收机制。 在创建对象的时候">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhengdunhao/UploadFiles/master/p3.png">
 
 
@@ -208,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -218,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            About
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -302,7 +302,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T10:11:06+08:00">
                 2017-11-23
@@ -347,7 +347,7 @@
       
 
       
-        <h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
 <li>堆的介绍</li>
 <li>堆的工作过程</li>
 </ul>
@@ -454,10 +454,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -481,8 +481,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -566,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要特性"><span class="nav-number">1.</span> <span class="nav-text">主要特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆的介绍"><span class="nav-number"></span> <span class="nav-text">堆的介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆的工作过程"><span class="nav-number"></span> <span class="nav-text">堆的工作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程分析"><span class="nav-number">1.</span> <span class="nav-text">过程分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆的介绍"><span class="nav-number"></span> <span class="nav-text">堆的介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆的工作过程"><span class="nav-number"></span> <span class="nav-text">堆的工作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程分析"><span class="nav-number">1.</span> <span class="nav-text">过程分析</span></a></li></ol></div>
             
 
           </div>
@@ -598,7 +598,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

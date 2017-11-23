@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            About
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -267,6 +267,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/BitOperation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/23/BitOperation/" itemprop="url">BitOperation</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T20:10:16+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>基础题目</li>
+<li>计算二进制数中1的个数</li>
+<li>异或</li>
+<li>巧解找数字问题</li>
+</ul>
+<h1 id="基础题目"><a href="#基础题目" class="headerlink" title="基础题目"></a>基础题目</h1><p>当执行乘法，除法和模运算时，有出现关于2的整数次幂的，往往可以使用位操作来解决。例如，求n mod 16，比较好的写法是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> t = n &amp; <span class="number">0xf</span>; <span class="comment">// not n % 16</span></span><br></pre></td></tr></table></figure></p>
+<p>判断一个数的奇偶性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 奇数返回 true</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isOdd</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &amp; <span class="number">1</span> == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对整数n乘(除)以2的整数次幂，可以使用左(右)移来实现，而不是直接乘或者除。有一道笔试题，不准使用乘法，实现 n*7 ，答案是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n &lt;&lt; <span class="number">3</span> − n;</span><br><span class="line"><span class="comment">// 当然，也可以使用 n &lt;&lt; 2 + n &lt;&lt; 1 + n，这种办法要差一些。</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="计算二进制数中1的个数"><a href="#计算二进制数中1的个数" class="headerlink" title="计算二进制数中1的个数"></a>计算二进制数中1的个数</h1><p>一个整数，要求去掉它的二进制表示法的最后一次出现的1，例如， 110，去掉最后一个1就是100。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">expellOne</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//a的最后一个1的位置，对应于a-1是0</span></span><br><span class="line">     <span class="keyword">return</span> a &amp; (a − <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>统计整数转成二进制后总共有多少位是1。例如110，统计的结果就是2。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">calcOnes</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a != <span class="number">0</span>) &#123;</span><br><span class="line">        a = expellOne(a);</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><p>异或的特点是按位操作，相同为0，不同为1。因此，在汇编语言中，经常使用“xor ax, ax”这样的语句来清零寄存器。异或遵循结合律和交换律，从而有“a xor b xor a = a xor a xor b = (a xor a) xor b = 0 xor b = b”。</p>
+<p>不使用第三个变量，交换整型变量 a 和 b 的值。可以使用异或来解决。代码是:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a ˆ b, b = a ˆ b, a = a ˆ b;</span><br></pre></td></tr></table></figure></p>
+<h1 id="巧解找数字问题"><a href="#巧解找数字问题" class="headerlink" title="巧解找数字问题"></a>巧解找数字问题</h1><p>一个整型数组里除了一个数字之外，其他的数字都出现了两次。请找出这个数字。</p>
+<p>我们可以使用异或来解决这个问题，把数组里的所有元素全部进行异或操作。由于异或操作的交换律和结合律我们知道，所有出现了两次的数字，都与自己先结合进行运算，那么结果就是0，最后，剩下的那个数字就是要找的数字。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03_05_02</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> [] nums = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            result^=num;</span><br><span class="line">            System.out.println(<span class="string">"result:"</span>+result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果数组中只出现了一次的数字有两个，而其他数字都出现了两次呢？</p>
+<p>思路是，如果能够把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照上一题的办法就可以分别求出这两个只出现一次的数字了。</p>
+<p>还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或的过程中全部抵消掉了。由于这两个数字不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至 少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第 N 位。这两个数字不 同，意味着为1的那个位是相异的。现在我们以第 N 位是不是 1 为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第 N 位都为1，而第二个子数组的每个数字的第 N 位都为0。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03_05_03</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>&#125;;</span><br><span class="line">        findNums(nums, nums.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findNums</span><span class="params">(<span class="keyword">int</span>[] data, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (length &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ansXor = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">            ansXor ^= data[i];               <span class="comment">//异或</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = findFirstOne(ansXor);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (testBit(data[i], pos))</span><br><span class="line">                num1 ^= data[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                num2 ^= data[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"the two numbers are "</span> + num1 + <span class="string">" and "</span> + num2);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findFirstOne</span><span class="params">(<span class="keyword">int</span> value)</span>  <span class="comment">//取二进制中首个为1的位置</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((value &amp; <span class="number">1</span>) != <span class="number">1</span>) &#123;</span><br><span class="line">            value = value &gt;&gt; <span class="number">1</span>; <span class="comment">//向右移一位</span></span><br><span class="line">            pos++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">testBit</span><span class="params">(<span class="keyword">int</span> value, <span class="keyword">int</span> pos)</span> <span class="comment">//测试某位置是否为1</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((value &gt;&gt; pos) &amp; <span class="number">1</span>) != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>1-1000中少了两个数，找出没有出现的两个数，数组是无序的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03_05_04</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] num = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">        findLostTwo(num, num.length, num1, num2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findLostTwo</span><span class="params">(<span class="keyword">int</span> num[], <span class="keyword">int</span> length, <span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="comment">//返回的temp就是缺失的两个数的异或</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            temp ^= (i + <span class="number">1</span>);</span><br><span class="line">            temp ^= num[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> first_not_zero = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> ((temp &amp; <span class="number">1</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">            first_not_zero++;</span><br><span class="line">            temp = temp &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (testBit(i + <span class="number">1</span>, first_not_zero - <span class="number">1</span>))</span><br><span class="line">                num1 ^= (i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                num2 ^= (i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (testBit(num[i], first_not_zero - <span class="number">1</span>))</span><br><span class="line">                num1 ^= num[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                num2 ^= num[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"num1:"</span> + num1 + <span class="string">",num2:"</span> + num2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">testBit</span><span class="params">(<span class="keyword">int</span> value, <span class="keyword">int</span> pos)</span> <span class="comment">//测试某位置是否为1</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((value &gt;&gt; pos) &amp; <span class="number">1</span>) != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/RecursiveDescent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -296,7 +434,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T17:47:09+08:00">
                 2017-11-23
@@ -449,7 +587,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T10:11:06+08:00">
                 2017-11-23
@@ -491,7 +629,7 @@
       
         
           
-            <h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+            <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
 <li>堆的介绍</li>
 <li>堆的工作过程</li>
 </ul>
@@ -585,7 +723,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T19:47:09+08:00">
                 2017-11-22
@@ -733,7 +871,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T08:45:43+08:00">
                 2017-11-21
@@ -1120,7 +1258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T14:54:43+08:00">
                 2017-11-09
@@ -1256,8 +1394,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1357,7 +1495,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

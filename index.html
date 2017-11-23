@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            About
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -296,7 +296,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T19:47:09+08:00">
                 2017-11-22
@@ -342,13 +342,17 @@
 <li>函数与方法的区别</li>
 <li>Java调用方法的过程</li>
 </ul>
-<h1 id="函数与方法的区别"><a href="#函数与方法的区别" class="headerlink" title="函数与方法的区别"></a>函数与方法的区别</h1><p>函数与方法在不同的场景下，叫法不同。函数一般出现在面向过程，比如C语言，通过函数名就可以调用这个函数。而方法一般出现在面向对象，与对象相关联，通过对象调用里面的方法。</p>
-<h1 id="Java调用方法的过程"><a href="#Java调用方法的过程" class="headerlink" title="Java调用方法的过程"></a>Java调用方法的过程</h1><p>当Java启动一个线程的时候，就会创建一个栈。每当线程执行一个方法的时候，就会压入一个栈帧。只有处于栈顶的栈帧才是最有效的，称为当前栈帧，即当前方法。<code>注意，当前方法没有返回或抛异常中断时，当前栈帧是不会出栈的</code>。</p>
+<h1 id="函数与方法的区别"><a href="#函数与方法的区别" class="headerlink" title="函数与方法的区别"></a>函数与方法的区别</h1><blockquote>
+<p>函数与方法在不同的场景下，叫法不同。函数一般出现在面向过程，比如C语言，通过函数名就可以调用这个函数。而方法一般出现在面向对象，与对象相关联，通过对象调用里面的方法。</p>
+</blockquote>
+<h1 id="Java调用方法的过程"><a href="#Java调用方法的过程" class="headerlink" title="Java调用方法的过程"></a>Java调用方法的过程</h1><blockquote>
+<p>当Java启动一个线程的时候，就会创建一个栈。每当线程执行一个方法的时候，就会压入一个栈帧。只有处于栈顶的栈帧才是最有效的，称为当前栈帧，即当前方法。<code>注意，当前方法没有返回或抛异常中断时，当前栈帧是不会出栈的</code>。</p>
 <p>栈帧：主要由四部分组成，分别是局部变量表（Local Stack Frame）、操作数栈（Operand Stack）、动态链接（Dynamic Linking）以及返回地址（Reture Address）。</p>
 <ul>
 <li>局部变量表：保存函数的参数以及局部变量用</li>
 <li>操作数栈：存放一些操作后的结果<br></li>
 </ul>
+</blockquote>
 <p><strong>示例</strong><br></p>
 <h3 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code : "></a>Java Code : <br></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> t = a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="ByteCode"><a href="#ByteCode" class="headerlink" title="ByteCode"></a>ByteCode</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0: iconst_1  //把常量1 放到操作数栈顶</span><br><span class="line">1: istore_1  //从操作数栈取出栈顶的值，并将其存入局部变量表里的第一个位置，可以理解为索引为1</span><br><span class="line">2: iconst_2  //把常量2 放到操作数栈顶</span><br><span class="line">3: istore_2  //从操作数栈取出栈顶的值，并将其存入局部变量表里的第二个位置，可以理解为索引为2</span><br><span class="line">4: iload_1   //把局部变量表的第一个位置，及索引为1的值，放入操作数栈的栈顶</span><br><span class="line">5: iload_2   //把局部变量表的第二个位置，及索引为2的值，放入操作数栈的栈顶</span><br><span class="line">6: iadd      //把操作数栈的两个数取出来，求和，再把结果放入操作数栈的栈顶</span><br><span class="line">7: istore_3  //从操作数栈取出栈顶的值，并将其存入局部变量表里的第三个位置，可以理解为索引为3</span><br><span class="line">8: return</span><br></pre></td></tr></table></figure>
@@ -438,7 +442,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T08:45:43+08:00">
                 2017-11-21
@@ -825,7 +829,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T14:54:43+08:00">
                 2017-11-09
@@ -962,7 +966,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1062,7 +1066,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

@@ -98,7 +98,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/23/BitOperation/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="目录 基础题目 计算二进制数中1的个数 异或 巧解找数字问题  基础题目当执行乘法，除法和模运算时，有出现关于2的整数次幂的，往往可以使用位操作来解决。例如，求n mod 16，比较好的写法是1int t = n &amp;amp; 0xf; // not n % 16 判断一个数的奇偶性1234// 奇数返回 trueboolean isOdd(int n) &amp;#123;    return n &amp;am">
-<meta property="og:updated_time" content="2017-11-23T12:44:29.371Z">
+<meta property="og:updated_time" content="2017-11-27T11:29:51.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BitOperation">
 <meta name="twitter:description" content="目录 基础题目 计算二进制数中1的个数 异或 巧解找数字问题  基础题目当执行乘法，除法和模运算时，有出现关于2的整数次幂的，往往可以使用位操作来解决。例如，求n mod 16，比较好的写法是1int t = n &amp;amp; 0xf; // not n % 16 判断一个数的奇偶性1234// 奇数返回 trueboolean isOdd(int n) &amp;#123;    return n &amp;am">
@@ -202,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -212,7 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -222,7 +222,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -296,7 +296,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T20:10:16+08:00">
                 2017-11-23
@@ -352,7 +352,13 @@
 <p>对整数n乘(除)以2的整数次幂，可以使用左(右)移来实现，而不是直接乘或者除。有一道笔试题，不准使用乘法，实现 n*7 ，答案是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n &lt;&lt; <span class="number">3</span> − n;</span><br><span class="line"><span class="comment">// 当然，也可以使用 n &lt;&lt; 2 + n &lt;&lt; 1 + n，这种办法要差一些。</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="计算二进制数中1的个数"><a href="#计算二进制数中1的个数" class="headerlink" title="计算二进制数中1的个数"></a>计算二进制数中1的个数</h1><p>一个整数，要求去掉它的二进制表示法的最后一次出现的1，例如， 110，去掉最后一个1就是100。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">expellOne</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//a的最后一个1的位置，对应于a-1是0</span></span><br><span class="line">     <span class="keyword">return</span> a &amp; (a − <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>统计整数转成二进制后总共有多少位是1。例如110，统计的结果就是2。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">calcOnes</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a != <span class="number">0</span>) &#123;</span><br><span class="line">        a = expellOne(a);</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><p>异或的特点是按位操作，相同为0，不同为1。因此，在汇编语言中，经常使用“xor ax, ax”这样的语句来清零寄存器。异或遵循结合律和交换律，从而有“a xor b xor a = a xor a xor b = (a xor a) xor b = 0 xor b = b”。</p>
+<h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><p>异或是按位操作，相同为0，不同为1。异或有三个特点：</p>
+<ol>
+<li>0^0=0,0^1=1  0异或任何数＝任何数</li>
+<li>1^0=1,1^1=0  1异或任何数－任何数取反 </li>
+<li>任何数异或自己＝把自己置0 <br></li>
+</ol>
+<p>因此，在汇编语言中，经常使用“xor ax, ax”这样的语句来清零寄存器。异或遵循结合律和交换律，从而有“a xor b xor a = a xor a xor b = (a xor a) xor b = 0 xor b = b”。</p>
 <p>不使用第三个变量，交换整型变量 a 和 b 的值。可以使用异或来解决。代码是:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a ˆ b, b = a ˆ b, a = a ˆ b;</span><br></pre></td></tr></table></figure></p>
 <h1 id="巧解找数字问题"><a href="#巧解找数字问题" class="headerlink" title="巧解找数字问题"></a>巧解找数字问题</h1><p>一个整型数组里除了一个数字之外，其他的数字都出现了两次。请找出这个数字。</p>
 <p>我们可以使用异或来解决这个问题，把数组里的所有元素全部进行异或操作。由于异或操作的交换律和结合律我们知道，所有出现了两次的数字，都与自己先结合进行运算，那么结果就是0，最后，剩下的那个数字就是要找的数字。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03_05_02</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> [] nums = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            result^=num;</span><br><span class="line">            System.out.println(<span class="string">"result:"</span>+result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -446,10 +452,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -474,7 +480,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -590,7 +596,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
